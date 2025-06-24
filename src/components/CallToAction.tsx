@@ -1,7 +1,8 @@
 
+
 const CallToAction = () => {
   const handleCTAClick = () => {
-    window.open('https://dashboard.kiwify.com', '_blank');
+    window.open('https://pay.kiwify.com.br/0LDTPaj', '_blank');
   };
 
   return (
@@ -108,3 +109,4 @@ const CallToAction = () => {
 };
 
 export default CallToAction;
+
