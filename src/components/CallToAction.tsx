@@ -1,5 +1,3 @@
-
-
 const CallToAction = () => {
   const handleCTAClick = () => {
     window.open('https://pay.kiwify.com.br/0LDTPaj', '_blank');
@@ -39,10 +37,6 @@ const CallToAction = () => {
             <div className="flex items-center justify-center text-white">
               <span className="text-green-accent mr-2">✅</span>
               Acesso vitalício ao curso completo
-            </div>
-            <div className="flex items-center justify-center text-white">
-              <span className="text-green-accent mr-2">✅</span>
-              Mais de 20 horas de conteúdo exclusivo
             </div>
             <div className="flex items-center justify-center text-white">
               <span className="text-green-accent mr-2">✅</span>
@@ -109,4 +103,3 @@ const CallToAction = () => {
 };
 
 export default CallToAction;
-
