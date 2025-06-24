@@ -1,4 +1,5 @@
 
+
 const HeroSection = () => {
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-20">
@@ -16,7 +17,7 @@ const HeroSection = () => {
         </h1>
         
         <h2 className="text-2xl md:text-4xl text-purple-secondary mb-8 font-semibold">
-          Ebook | Superando a Ansiedade em Vendas
+          Curso Completo | Estica Vendas - Vídeo Aulas
         </h2>
         
         <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-4xl mx-auto">
@@ -57,3 +58,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
