@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,13 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Cores personalizadas para o tema roxo/violeta
+				'purple-dark': '#1a0b2e',
+				'purple-primary': '#7c3aed',
+				'purple-secondary': '#a855f7',
+				'green-accent': '#10b981',
+				'teal-accent': '#14b8a6'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +91,27 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				bounce: {
+					'0%, 100%': {
+						transform: 'translateY(-25%)',
+						'animation-timing-function': 'cubic-bezier(0.8, 0, 1, 1)'
+					},
+					'50%': {
+						transform: 'translateY(0)',
+						'animation-timing-function': 'cubic-bezier(0, 0, 0.2, 1)'
+					}
+				},
+				float: {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				bounce: 'bounce 1s infinite',
+				float: 'float 3s ease-in-out infinite'
 			}
 		}
 	},
