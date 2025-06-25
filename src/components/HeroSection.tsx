@@ -1,7 +1,7 @@
 
 const HeroSection = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-20">
+    <div className="min-h-screen flex items-center justify-center px-4 py-20 bg-black">
       <div className="text-center max-w-6xl mx-auto">
         <div className="mb-8 animate-float">
           <img
@@ -34,15 +34,15 @@ const HeroSection = () => {
         </div>
 
         <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
-          <div className="bg-black/30 p-6 rounded-lg backdrop-blur-sm">
+          <div className="bg-black/30 p-6 rounded-lg backdrop-blur-sm border border-green-accent/30">
             <div className="text-3xl font-bold text-green-accent mb-2">+500</div>
             <div className="text-gray-300">Alunos Transformados</div>
           </div>
-          <div className="bg-black/30 p-6 rounded-lg backdrop-blur-sm">
+          <div className="bg-black/30 p-6 rounded-lg backdrop-blur-sm border border-teal-accent/30">
             <div className="text-3xl font-bold text-teal-accent mb-2">97%</div>
             <div className="text-gray-300">Taxa de Satisfação</div>
           </div>
-          <div className="bg-black/30 p-6 rounded-lg backdrop-blur-sm">
+          <div className="bg-black/30 p-6 rounded-lg backdrop-blur-sm border border-purple-secondary/30">
             <div className="text-3xl font-bold text-purple-secondary mb-2">24h</div>
             <div className="text-gray-300">Suporte Garantido</div>
           </div>

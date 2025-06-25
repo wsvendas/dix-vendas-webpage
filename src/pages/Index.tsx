@@ -44,7 +44,7 @@ const Index = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-dark via-purple-900 to-black relative overflow-hidden">
+    <div className="min-h-screen bg-black relative overflow-hidden">
       {/* Efeitos de fundo neon globais */}
       <div className="fixed inset-0 opacity-10 pointer-events-none">
         <div className="absolute top-20 left-10 w-96 h-96 bg-green-accent/30 rounded-full blur-3xl animate-pulse"></div>
