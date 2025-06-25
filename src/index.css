@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -37,19 +38,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -99,5 +93,57 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Animações neon personalizadas */
+@keyframes neon-glow {
+  0%, 100% {
+    text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+  }
+  50% {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+}
+
+@keyframes neon-border {
+  0%, 100% {
+    box-shadow: 0 0 5px currentColor, inset 0 0 5px currentColor;
+  }
+  50% {
+    box-shadow: 0 0 20px currentColor, inset 0 0 10px currentColor;
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  .animate-neon-glow {
+    animation: neon-glow 2s ease-in-out infinite;
+  }
+  
+  .animate-neon-border {
+    animation: neon-border 2s ease-in-out infinite;
+  }
+  
+  .animate-fade-in {
+    animation: fade-in-up 0.8s ease-out;
+  }
+  
+  .animate-fade-in.delay-300 {
+    animation-delay: 0.3s;
+  }
+  
+  .animate-fade-in.delay-600 {
+    animation-delay: 0.6s;
   }
 }
