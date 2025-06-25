@@ -1,4 +1,5 @@
 
+
 const HeroSection = () => {
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-20 bg-black">
@@ -12,7 +13,7 @@ const HeroSection = () => {
         </div>
         
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 bg-gradient-to-r from-purple-secondary to-teal-accent bg-clip-text text-transparent">
-          PÁGINA DE VENDAS
+          ESTICA VENDAS
         </h1>
         
         <h2 className="text-2xl md:text-4xl text-purple-secondary mb-8 font-semibold">
@@ -53,3 +54,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
