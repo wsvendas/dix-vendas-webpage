@@ -1,24 +1,907 @@
+
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>dix-vendas-webpage</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estica Vendas - DIX VENDE</title>
+    <meta name="description" content="Curso Completo de Marketing Digital - Estica Vendas">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <meta property="og:title" content="dix-vendas-webpage" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+        .section {
+            min-height: 100vh;
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+        }
+
+        .logo {
+            width: 320px;
+            height: 320px;
+            margin: 0 auto 40px;
+            border-radius: 20px;
+            overflow: hidden;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .title {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #8B5CF6, #06D6A0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 2rem;
+            color: #8B5CF6;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .description {
+            font-size: 1.5rem;
+            color: #d1d5db;
+            margin-bottom: 60px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #06D6A0, #14B8A6);
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 80px;
+        }
+
+        .stat-card {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(6, 214, 160, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #06D6A0;
+            margin-bottom: 10px;
+        }
+
+        .testimonials {
+            background: #000;
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 60px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial {
+            background: #075E54;
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid rgba(6, 214, 160, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial:hover {
+            transform: scale(1.05);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            background: #d1d5db;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+
+        .testimonial-info h3 {
+            color: white;
+            font-weight: 600;
+        }
+
+        .testimonial-info .status {
+            color: #d1d5db;
+            font-size: 0.9rem;
+        }
+
+        .time {
+            margin-left: auto;
+            color: #9ca3af;
+            font-size: 0.8rem;
+        }
+
+        .message {
+            background: #DCF8C6;
+            color: #1f2937;
+            padding: 15px;
+            border-radius: 12px;
+            position: relative;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .message::after {
+            content: "✓✓";
+            position: absolute;
+            bottom: 5px;
+            right: 10px;
+            color: #6b7280;
+            font-size: 0.8rem;
+        }
+
+        .references {
+            background: linear-gradient(135deg, #000 0%, #4c1d95 50%, #000 100%);
+            padding: 80px 0;
+        }
+
+        .references-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .reference-card {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(6, 214, 160, 0.5);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .reference-card:hover {
+            transform: scale(1.05);
+        }
+
+        .reference-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .quote {
+            font-size: 1.3rem;
+            font-weight: bold;
+            font-style: italic;
+            text-align: center;
+            color: white;
+        }
+
+        .video-section {
+            background: linear-gradient(135deg, #000 0%, #1f2937 50%, #000 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            position: relative;
+            border: 3px solid #06D6A0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(6, 214, 160, 0.3);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 450px;
+        }
+
+        .marketing-section {
+            background: linear-gradient(135deg, #000 0%, #4c1d95 100%);
+            padding: 80px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: rgba(139, 92, 246, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #8B5CF6;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .check-icon {
+            width: 24px;
+            height: 24px;
+            background: #06D6A0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            margin-top: 5px;
+            flex-shrink: 0;
+        }
+
+        .check-icon::after {
+            content: "✓";
+            color: white;
+            font-size: 0.8rem;
+        }
+
+        .final-cta {
+            background: linear-gradient(135deg, #4c1d95 0%, #000 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .price-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 60px 40px;
+            border-radius: 30px;
+            border: 2px solid #06D6A0;
+            position: relative;
+            box-shadow: 0 0 50px rgba(6, 214, 160, 0.3);
+        }
+
+        .old-price {
+            font-size: 1.5rem;
+            color: #9ca3af;
+            text-decoration: line-through;
+            margin-bottom: 10px;
+        }
+
+        .new-price {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #06D6A0;
+            margin-bottom: 20px;
+        }
+
+        .discount {
+            background: #ef4444;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        .benefits {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .benefits li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .benefits li::before {
+            content: "✅";
+            margin-right: 10px;
+        }
+
+        .final-button {
+            background: linear-gradient(45deg, #06D6A0, #14B8A6);
+            color: white;
+            padding: 25px 50px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-button:hover {
+            transform: scale(1.05);
+        }
+
+        .limited-offer {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid #ef4444;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .guarantee {
+            background: rgba(6, 214, 160, 0.1);
+            border: 1px solid #06D6A0;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .description {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .references-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-30px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-15px);
+            }
+        }
+
+        .arrow-down {
+            font-size: 2rem;
+            color: #06D6A0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="section hero">
+        <div class="container">
+            <div class="logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgdmlld0JveD0iMCAwIDMyMCAzMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMjAiIGhlaWdodD0iMzIwIiBmaWxsPSIjMDAwIiBzdHJva2U9IiMwNkQ2QTAiIHN0cm9rZS13aWR0aD0iNCIvPgo8dGV4dCB4PSIxNjAiIHk9IjE0MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjMyIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzA2RDZBMCI+RElYPC90ZXh0Pgo8dGV4dCB4PSIxNjAiIHk9IjE4MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI4IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzhCNUNGNiI+VkVOREU8L3RleHQ+CjwvZ3ZnPgo=" alt="DIX VENDE Logo" />
+            </div>
+            
+            <h1 class="title">ESTICA VENDAS</h1>
+            
+            <h2 class="subtitle">Curso Completo | Estica Vendas - Vídeo Aulas</h2>
+            
+            <p class="description">
+                Descubra os segredos do <strong style="color: #06D6A0;">Marketing Digital</strong> e 
+                aprenda a vender da forma certa com estratégias comprovadas de 
+                <strong style="color: #14B8A6;">Tráfego Pago</strong>, 
+                <strong style="color: #8B5CF6;">Copywriting</strong> e 
+                <strong style="color: #06D6A0;">Funil de Vendas</strong>
+            </p>
+
+            <a href="#final-cta" class="cta-button">QUERO VENDER MUITO MAIS!</a>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">+500</div>
+                    <div>Alunos Transformados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">97%</div>
+                    <div>Taxa de Satisfação</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24h</div>
+                    <div>Suporte Garantido</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="arrow-down">↓</div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials">
+        <div class="container">
+            <h2 class="section-title">DEPOIMENTOS REAIS</h2>
+            <p style="text-align: center; font-size: 1.3rem; color: #d1d5db; margin-bottom: 60px;">
+                Veja o que nossos alunos estão dizendo sobre o curso
+            </p>
+
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <div class="avatar">👩‍💼</div>
+                        <div class="testimonial-info">
+                            <h3>Marina Santos</h3>
+                            <div class="status">online</div>
+                        </div>
+                        <div class="time">14:32</div>
+                    </div>
+                    <div class="message">
+                        Cara, o curso Estica Vendas mudou minha vida! Antes eu vendia 2-3 produtos por mês, agora estou faturando R$ 15.000 mensais com marketing digital! 🚀
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <div class="avatar">👨‍💻</div>
+                        <div class="testimonial-info">
+                            <h3>Carlos Oliveira</h3>
+                            <div class="status">online</div>
+                        </div>
+                        <div class="time">09:15</div>
+                    </div>
+                    <div class="message">
+                        Incrível como o copywriting que aprendi no curso fez diferença! Minha taxa de conversão aumentou 300%. Obrigado DIX VENDE! 💰
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <div class="avatar">👩‍🚀</div>
+                        <div class="testimonial-info">
+                            <h3>Ana Beatriz</h3>
+                            <div class="status">online</div>
+                        </div>
+                        <div class="time">16:48</div>
+                    </div>
+                    <div class="message">
+                        Pessoal, sério mesmo! O funil de vendas que montei seguindo o curso já me trouxe mais de R$ 50.000 em vendas! Esse método funciona! 🎯
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <div class="avatar">👨‍💼</div>
+                        <div class="testimonial-info">
+                            <h3>Roberto Silva</h3>
+                            <div class="status">online</div>
+                        </div>
+                        <div class="time">11:22</div>
+                    </div>
+                    <div class="message">
+                        Estava gastando uma fortuna com tráfego pago sem resultado. Depois do Estica Vendas, meu ROAS subiu para 8x! Recomendo demais! 📈
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <div class="avatar">👩‍🎨</div>
+                        <div class="testimonial-info">
+                            <h3>Juliana Costa</h3>
+                            <div class="status">online</div>
+                        </div>
+                        <div class="time">13:57</div>
+                    </div>
+                    <div class="message">
+                        Gente, que curso incrível! Em 30 dias aplicando as técnicas, saí de zero para R$ 8.000 de faturamento. Muito obrigada DIX VENDE! ❤️
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <div class="avatar">👨‍🎓</div>
+                        <div class="testimonial-info">
+                            <h3>Pedro Henrique</h3>
+                            <div class="status">online</div>
+                        </div>
+                        <div class="time">08:33</div>
+                    </div>
+                    <div class="message">
+                        O módulo de copywriting é sensacional! Minhas landing pages agora convertem 5x mais. Valeu cada centavo investido no curso! 🔥
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 60px;">
+                <p style="font-size: 1.5rem; font-weight: bold; color: #06D6A0; margin-bottom: 30px;">
+                    +500 ALUNOS JÁ TRANSFORMARAM SUAS VENDAS!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- References Section -->
+    <section class="section references">
+        <div class="container">
+            <h2 class="section-title">
+                <span style="background: linear-gradient(45deg, #06D6A0, #14B8A6, #8B5CF6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    REFERÊNCIAS
+                </span>
+            </h2>
+            <p style="text-align: center; font-size: 1.3rem; color: #d1d5db; margin-bottom: 60px;">
+                Inspiração dos maiores nomes do sucesso
+            </p>
+
+            <div class="references-grid">
+                <div class="reference-card">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDQwMCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSIjMWYyOTM3Ii8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTI1IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjRkZGIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TdWNlc3NvPC90ZXh0Pgo8L3N2Zz4K" alt="Leonardo DiCaprio" />
+                    <div class="quote">
+                        "Já Fui Um Homem Rico, E Já Fui Um Homem Pobre E Escolho a Riqueza Toda Santa Vez."
+                    </div>
+                </div>
+
+                <div class="reference-card">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDQwMCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSIjMWYyOTM3Ii8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTI1IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjRkZGIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5MdXhvPC90ZXh0Pgo8L3N2Zz4K" alt="Luxo" />
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 40px;">
+                <div class="reference-card" style="padding: 20px;">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDIwMCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMTUwIiBmaWxsPSIjMWYyOTM3Ii8+Cjx0ZXh0IHg9IjEwMCIgeT0iNzUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNGRkYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPmlQaG9uZTwvdGV4dD4KPC9zdmc+Cg==" alt="iPhone" style="height: 150px;" />
+                </div>
+                <div class="reference-card" style="padding: 20px;">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDIwMCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMTUwIiBmaWxsPSIjMWYyOTM3Ii8+Cjx0ZXh0IHg9IjEwMCIgeT0iNzUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNGRkYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlByZW1pdW08L3RleHQ+Cjwvc3ZnPgo=" alt="Premium" style="height: 150px;" />
+                </div>
+                <div class="reference-card" style="padding: 20px;">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDIwMCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMTUwIiBmaWxsPSIjMWYyOTM3Ii8+Cjx0ZXh0IHg9IjEwMCIgeT0iNzUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiMwNkQ2QTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPiQ8L3RleHQ+Cjwvc3ZnPgo=" alt="Dinheiro" style="height: 150px;" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="section video-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span style="background: linear-gradient(45deg, #06D6A0, #14B8A6, #8B5CF6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    🎯 ASSISTA AGORA
+                </span>
+            </h2>
+            <p style="font-size: 1.5rem; font-weight: bold; margin-bottom: 40px;">
+                O Vídeo Que Vai Mudar Sua Vida Financeira Para Sempre!
+            </p>
+
+            <div class="video-container">
+                <iframe
+                    src="https://www.youtube.com/embed/cvnzkIZjwno"
+                    title="Vídeo Exclusivo - Estica Vendas"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div style="background: rgba(0, 0, 0, 0.8); padding: 40px; border-radius: 20px; border: 1px solid #06D6A0;">
+                <h3 style="font-size: 2rem; font-weight: bold; margin-bottom: 20px;">
+                    💎 GOSTOU DO QUE VIU?
+                </h3>
+                <p style="font-size: 1.2rem; color: #d1d5db; margin-bottom: 30px;">
+                    Continue rolando para descobrir como ter acesso ao curso completo com desconto exclusivo!
+                </p>
+                <div style="font-size: 2rem; animation: bounce 2s infinite;">↓</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marketing Section -->
+    <section class="section marketing-section">
+        <div class="container">
+            <h2 class="section-title">MARKETING DIGITAL</h2>
+            <p style="text-align: center; font-size: 1.3rem; color: #d1d5db; margin-bottom: 60px;">
+                Domine as estratégias que realmente funcionam no mundo digital
+            </p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">TRÁFEGO PAGO QUE CONVERTE</h3>
+                    <ul class="feature-list">
+                        <li>
+                            <div class="check-icon"></div>
+                            <strong>Facebook e Instagram Ads:</strong> Aprenda a criar campanhas que geram resultados reais
+                        </li>
+                        <li>
+                            <div class="check-icon"></div>
+                            <strong>Google Ads:</strong> Domine as estratégias para aparecer no momento exato
+                        </li>
+                        <li>
+                            <div class="check-icon"></div>
+                            <strong>Otimização:</strong> Técnicas para diminuir custo e aumentar ROAS
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">✍️</div>
+                    <h3 class="feature-title">COPYWRITING PERSUASIVO</h3>
+                    <ul class="feature-list">
+                        <li>
+                            <div class="check-icon"></div>
+                            <strong>Gatilhos Mentais:</strong> 15 gatilhos mais poderosos para influenciar decisões
+                        </li>
+                        <li>
+                            <div class="check-icon"></div>
+                            <strong>Headlines Irresistíveis:</strong> Fórmulas testadas para capturar atenção
+                        </li>
+                        <li>
+                            <div class="check-icon"></div>
+                            <strong>CTA Poderosos:</strong> Chamadas que convertem visitantes em clientes
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔥</div>
+                    <h3 class="feature-title">FUNIL DE VENDAS</h3>
+                    <ul class="feature-list">
+                        <li>
+                            <div class="check-icon"></div>
+                            <strong>Estrutura:</strong> Como mapear a jornada do cliente
+                        </li>
+                        <li>
+                            <div class="check-icon"></div>
+                            <strong>Automação:</strong> Configure sequências que vendem sozinhas
+                        </li>
+                        <li>
+                            <div class="check-icon"></div>
+                            <strong>Otimização:</strong> Acompanhe e melhore seus resultados
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 60px;">
+                <p style="font-size: 1.8rem; font-weight: bold; margin-bottom: 30px;">
+                    PARE DE PERDER VENDAS POR NÃO SABER COMO COMUNICAR SEU VALOR!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="final-cta" class="section final-cta">
+        <div class="container">
+            <h2 style="font-size: 3.5rem; font-weight: bold; margin-bottom: 30px;">
+                <span style="background: linear-gradient(45deg, #06D6A0, #14B8A6, #8B5CF6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    ÚLTIMA CHANCE!
+                </span>
+            </h2>
+            <p style="font-size: 1.5rem; color: #8B5CF6; font-weight: bold; margin-bottom: 20px;">
+                🔥 OFERTA ESPECIAL POR TEMPO LIMITADO 🔥
+            </p>
+            <p style="font-size: 1.3rem; color: #d1d5db; margin-bottom: 60px;">
+                Não perca a oportunidade de transformar sua vida com o curso mais completo de marketing digital do Brasil!
+            </p>
+
+            <div class="price-card">
+                <div class="old-price">De R$ 88,00</div>
+                <div class="new-price">R$ 29,99</div>
+                <div class="discount">💥 DESCONTO DE 66% 💥</div>
+
+                <ul class="benefits">
+                    <li>Acesso vitalício ao curso completo</li>
+                    <li>Suporte direto com especialistas</li>
+                    <li>Certificado de conclusão</li>
+                    <li>Garantia de 7 dias ou seu dinheiro de volta</li>
+                </ul>
+
+                <button class="final-button" onclick="window.open('https://pay.kiwify.com.br/0LDTPaj', '_blank')">
+                    🚀 QUERO ACESSAR O CURSO 🚀
+                </button>
+
+                <div style="margin-top: 30px; font-size: 0.9rem; color: #9ca3af;">
+                    🔒 Pagamento 100% seguro • Acesso imediato após a compra
+                </div>
+            </div>
+
+            <div class="limited-offer">
+                <div style="color: #ef4444; font-weight: bold; font-size: 1.2rem; margin-bottom: 15px;">
+                    ⚠️ ATENÇÃO: VAGAS LIMITADAS!
+                </div>
+                <div>
+                    Restam apenas <strong style="color: #ef4444;">23 vagas</strong> com este desconto especial.
+                    <br />
+                    Após esgotar, o preço volta para R$ 197,00!
+                </div>
+            </div>
+
+            <div class="guarantee">
+                <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 20px;">
+                    🔒 GARANTIA DE 7 DIAS
+                </h3>
+                <p style="margin-bottom: 20px;">
+                    Se não ficar satisfeito, devolvemos 100% do seu dinheiro. Sem perguntas, sem complicação.
+                </p>
+                <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">🛡️</div>
+                        <div style="font-size: 0.9rem;">Pagamento Seguro</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">📞</div>
+                        <div style="font-size: 0.9rem;">Suporte 24h</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">✅</div>
+                        <div style="font-size: 0.9rem;">Acesso Imediato</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 60px; text-align: center;">
+                <p style="font-size: 1.5rem; font-weight: bold; margin-bottom: 30px;">
+                    💎 BÔNUS EXCLUSIVOS PARA QUEM COMPRAR HOJE:
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                    <div style="background: rgba(139, 92, 246, 0.2); padding: 30px; border-radius: 15px; border: 1px solid #8B5CF6;">
+                        <div style="font-size: 3rem; margin-bottom: 15px;">📊</div>
+                        <div style="font-weight: bold; margin-bottom: 10px;">Templates de Landing Page</div>
+                        <div style="color: #9ca3af; font-size: 0.9rem;">Valor: R$ 97,00</div>
+                    </div>
+                    <div style="background: rgba(6, 214, 160, 0.2); padding: 30px; border-radius: 15px; border: 1px solid #06D6A0;">
+                        <div style="font-size: 3rem; margin-bottom: 15px;">📈</div>
+                        <div style="font-weight: bold; margin-bottom: 10px;">Planilha de Métricas</div>
+                        <div style="color: #9ca3af; font-size: 0.9rem;">Valor: R$ 67,00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animação de entrada dos elementos quando aparecem na tela
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.feature-card, .testimonial, .reference-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
 </html>
