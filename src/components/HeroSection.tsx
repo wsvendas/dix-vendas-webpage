@@ -1,5 +1,4 @@
 
-
 const HeroSection = () => {
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-20">
@@ -28,13 +27,9 @@ const HeroSection = () => {
           <span className="text-green-accent font-bold"> Funil de Vendas</span>
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+        <div className="flex justify-center items-center mb-12">
           <button className="bg-gradient-to-r from-green-accent to-teal-accent text-white px-8 py-4 rounded-lg text-xl font-bold hover:scale-105 transition-transform duration-300 shadow-lg">
             QUERO VENDER MUITO MAIS!
-          </button>
-          
-          <button className="border-2 border-purple-secondary text-purple-secondary px-8 py-4 rounded-lg text-xl font-bold hover:bg-purple-secondary hover:text-white transition-all duration-300">
-            SAIBA MAIS
           </button>
         </div>
 
@@ -58,4 +53,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
